@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">ToDolistProject</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="To_Day">ToDay</string>
+    <string name="Combleted">Completed</string>
+    <string name="add_Task">Add Task</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">cancel</string>
 </resources>

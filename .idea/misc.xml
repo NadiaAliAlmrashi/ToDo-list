@@ -3,7 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/ToDolistProject/app/src/main/res/drawable/ic_add_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/ToDolistProject/app/src/main/res/layout/activity_add_task.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/ToDolistProject/app/src/main/res/layout/activity_main.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/ToDolistProject/app/src/main/res/layout/fragment_completed.xml" value="0.1" />
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/ToDolistProject/app/src/main/res/layout/fragment_home.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/ToDolistProject/app/src/main/res/layout/fragment_today.xml" value="0.1" />
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/ToDolistProject/app/src/main/res/layout/recycle_view_item.xml" value="0.1" />
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/ToDolistProject/app/src/main/res/layout/switch_item.xml" value="0.13949275362318841" />
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/ToDolistProject/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/ToDolistProject/app/src/main/res/menu/parmain.xml" value="0.1" />
       </map>
     </option>
   </component>

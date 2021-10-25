@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.todolistproject.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_today"
+        android:name="com.example.todolistproject.ui.today.ToDayFragment"
+        android:label="@string/To_Day"
+        tools:layout="@layout/fragment_today" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.todolistproject.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_completed"
+        android:name="com.example.todolistproject.ui.completed.CompletedFragment"
+        android:label="@string/Combleted"
+        tools:layout="@layout/fragment_completed" />
 </navigation>
