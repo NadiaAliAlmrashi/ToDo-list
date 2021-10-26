@@ -7,4 +7,6 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="cancel">cancel</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
