@@ -11,14 +11,19 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.todolistproject.MainVM
 import com.example.todolistproject.R
+import com.example.todolistproject.Task
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class AddFragment : Fragment() {
 
-    private lateinit var date: String
-    private lateinit var nameTask: EditText
+
+    private lateinit var titelTask: EditText
     private lateinit var Description: EditText
     private lateinit var pickdate: TextView
     private lateinit var addButten: Button
@@ -38,14 +43,14 @@ class AddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        nameTask=view.findViewById(R.id.txtName)
+        titelTask=view.findViewById(R.id.txtName)
         Description=view.findViewById(R.id.pickDetel)
         pickdate=view.findViewById(R.id.pickDate)
         clear = view.findViewById(R.id.clear)
         addButten =view.findViewById(R.id.AddTask)
 
-        val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+        val current = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
         val formatted = current.format(formatter)
 
 
@@ -57,7 +62,7 @@ class AddFragment : Fragment() {
             val year = c.get(Calendar.YEAR)
             val datePickerDialog =
                 DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener { view, y, m, d ->
-                    val Deu = "$y/${m + 1}/$d"
+                    val Deu = "${y}-${m + 1}-$d"
 
                     pickdate.setText(Deu)
 
@@ -65,11 +70,16 @@ class AddFragment : Fragment() {
             datePickerDialog.datePicker.minDate = c.timeInMillis
             datePickerDialog.show()
 
-
+        }
 
 
 
             addButten.setOnClickListener {
+                val mainVM = ViewModelProvider(this).get(MainVM::class.java)
+                val task= Task(taskTitle=titelTask.text.toString(),taskDescription = Description.text.toString(),
+                    datePicker=formatted.toString(),DateDue =pickdate.text.toString())
+             mainVM.fillDB(task)
+                findNavController().navigate(R.id.action_addFragment_to_navigation_home)
             }
 
 
@@ -81,7 +91,7 @@ class AddFragment : Fragment() {
                 alert.setIcon(R.drawable.alert)
                 alert.setMessage("Are you sure you want to clear all entries?")
                 alert.setPositiveButton(R.string.yes) { _, _ ->
-                    nameTask.setText(null)
+                    titelTask.setText(null)
                     Description.setText(null)
                     pickdate.setText(null)
 
@@ -96,7 +106,7 @@ class AddFragment : Fragment() {
             }
 
 
-        }}}
+        }}
 
 
 

@@ -17,10 +17,18 @@ class MainVM(context: Application) : AndroidViewModel(context) {
         }
         return tasks
     }
+//    fun getAllTaskToday(): MutableLiveData<List<Task>> {
+//        val tasks = MutableLiveData<List<Task>>()
+//        viewModelScope.launch {
+//            tasks.postValue(repo.getAllTaskToday())
+//        }
+//        return tasks
+//    }
 
-//
-//    fun fillDB() = viewModelScope.launch{
-//        repo.fillDB(task)
+    fun fillDB(task: Task) = viewModelScope.launch {
+        repo.fillDB(task)
+
     }
 
 
+}

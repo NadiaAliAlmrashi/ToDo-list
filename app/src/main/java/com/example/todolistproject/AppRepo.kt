@@ -16,35 +16,39 @@ class AppRepo(context:Application) {
     appDB.taskDao().getAllTask()
   }
   suspend fun getAllTaskComblet(): List<Task> = withContext(Dispatchers.IO) {
-    appDB.taskDao().getAllTask()
+    appDB.taskDao().getAllTaskComblet()
   }
-  suspend fun getAllTaskToday(): List<Task> = withContext(Dispatchers.IO) {
-    appDB.taskDao().getAllTask()
+  suspend fun getAllTaskToday(DateNowToday:String): List<Task> = withContext(Dispatchers.IO) {
+    appDB.taskDao().getAllTaskToday(DateNowToday)
+
   }
 
   suspend fun fillDB(task: Task) = withContext(Dispatchers.IO) {
-    val dataDB = appDB.taskDao().getAllTask()
-    if (dataDB.isEmpty()) {
 
 
       appDB.taskDao().insert(task)
 
     }
-  }
-  suspend fun UpdateTask(task: Task) = withContext(Dispatchers.IO) {
 
+  suspend fun UpdateTask(task: Task) = withContext(Dispatchers.IO) {
 
       appDB.taskDao().update(task)
 
     }
     suspend fun DeleteTask(task: Task) = withContext(Dispatchers.IO) {
-      val dataDB = appDB.taskDao().getAllTask()
-      if (dataDB.isEmpty()) {
 
-
-        appDB.taskDao().update(task)
+        appDB.taskDao().delete(task)
 
       }
+  suspend fun searchTask(id:Int) = withContext(Dispatchers.IO) {
+
+    appDB.taskDao().search(id)
 
   }
-}
+  suspend fun SortListTask() = withContext(Dispatchers.IO) {
+
+    appDB.taskDao().sortedFind()
+
+  }
+
+  }

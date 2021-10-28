@@ -6,11 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.todolistproject.MainVM
 import com.example.todolistproject.R
+import com.example.todolistproject.TaskRecycleViewAdapter
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 class ToDayFragment : Fragment() {
-
+    private lateinit var recyclerViewToday: RecyclerView
+    val current = LocalDate.now()
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+    val formatted = current.format(formatter)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -21,5 +33,21 @@ class ToDayFragment : Fragment() {
 
         return view
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recyclerViewToday=view.findViewById(R.id.rvRecycleViewToday)
+
+        val mainVM = ViewModelProvider(this).get(ToDayViewModel::class.java)
+
+        mainVM.getAllTaskToday(formatted).observe(viewLifecycleOwner, Observer {
+            recyclerViewToday.adapter= TaskRecycleViewAdapter(it)
+        })
+
+        recyclerViewToday.layoutManager = LinearLayoutManager(context)
+
+    }
 }
+
+
 

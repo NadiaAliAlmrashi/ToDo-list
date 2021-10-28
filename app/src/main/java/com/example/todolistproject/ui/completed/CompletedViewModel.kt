@@ -1,14 +1,20 @@
 package com.example.todolistproject.ui.completed
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.todolistproject.AppRepo
+import com.example.todolistproject.Task
+import kotlinx.coroutines.launch
 
-class CompletedViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Completed Fragment"
+
+    class CompletedViewModel(context: Application) : AndroidViewModel(context) {
+        private val repo = AppRepo(context)
+        fun getAllTaskComblet(): MutableLiveData<List<Task>> {
+            val tasks = MutableLiveData<List<Task>>()
+            viewModelScope.launch {
+                tasks.postValue(repo.getAllTaskComblet( ))
+            }
+            return tasks
+        }
     }
-    val text: LiveData<String> = _text
-
-}

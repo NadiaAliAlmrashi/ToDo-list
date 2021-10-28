@@ -6,18 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todolistproject.MainVM
 
 import com.example.todolistproject.R
+import com.example.todolistproject.Task
+import com.example.todolistproject.TaskRecycleViewAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class HomeFragment : Fragment() {
+    private lateinit var recyclerViewHome: RecyclerView
     private lateinit var AddIcon:FloatingActionButton
-   // private lateinit var recyclerView: RecyclerView
+
+
+
+    // private lateinit var recyclerView: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,9 +42,18 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         AddIcon=view.findViewById(R.id.addIcon)
-
+        recyclerViewHome=view.findViewById(R.id.rvRecycleView)
         AddIcon.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_addFragment)
         }
+
+        val mainVM = ViewModelProvider(this).get(MainVM::class.java)
+
+        mainVM.getAllTask().observe(viewLifecycleOwner, Observer {
+             recyclerViewHome.adapter=TaskRecycleViewAdapter(it)
+        })
+
+       recyclerViewHome.layoutManager = LinearLayoutManager(context)
+
+        }
     }
-}
