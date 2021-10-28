@@ -48,6 +48,7 @@ class TaskRecycleViewAdapter(private val taskList: List<Task>, val mainVM: MainV
                     }
                 } else {
                     task.State = false
+                
                     mainVM.updateData(task)
 
                 }

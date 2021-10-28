@@ -96,10 +96,12 @@ view.floatingActionSave.isEnabled=true
             viewModel.updateData(task)
             findNavController().navigate(R.id.action_describtionFragment_to_navigation_home)
         }
-        btnDueDate=view.findViewById(R.id.floatingActionDelete)
+        btnDelet=view.findViewById(R.id.floatingActionDelete)
         btnDueDate.setOnClickListener{
-            val task= Task(taskTitle= txtTetal.text.toString(),taskDescription = txtDirections.text.toString(),
-                datePicker=formatted.toString(),DateDue =txtDeuDate.text.toString(),id=args.describtionData.id)
+            val task= Task(taskTitle= txtTetal.text.toString(),
+                taskDescription = txtDirections.text.toString(),
+                datePicker=formatted.toString(),DateDue =txtDeuDate.text.toString(),
+                id=args.describtionData.id)
              viewModel.deletData(task)
             findNavController().navigate(R.id.action_describtionFragment_to_navigation_home)
         }
