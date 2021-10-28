@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todolistproject.MainVM
 
 import com.example.todolistproject.R
-import com.example.todolistproject.Task
 import com.example.todolistproject.TaskRecycleViewAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -50,7 +48,7 @@ class HomeFragment : Fragment() {
         val mainVM = ViewModelProvider(this).get(MainVM::class.java)
 
         mainVM.getAllTask().observe(viewLifecycleOwner, Observer {
-             recyclerViewHome.adapter=TaskRecycleViewAdapter(it)
+             recyclerViewHome.adapter=TaskRecycleViewAdapter(it,mainVM, 1)
         })
 
        recyclerViewHome.layoutManager = LinearLayoutManager(context)

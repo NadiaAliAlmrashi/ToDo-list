@@ -26,4 +26,5 @@ interface TaskDao
 
     @Query("SELECT * FROM Task_list ORDER BY taskTitle ASC")
     fun sortedFind(): List<Task>
+
 }

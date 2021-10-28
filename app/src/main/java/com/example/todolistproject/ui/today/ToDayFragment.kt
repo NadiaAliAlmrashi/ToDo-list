@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolistproject.MainVM
@@ -38,10 +37,10 @@ class ToDayFragment : Fragment() {
 
         recyclerViewToday=view.findViewById(R.id.rvRecycleViewToday)
 
-        val mainVM = ViewModelProvider(this).get(ToDayViewModel::class.java)
+        val mainVM = ViewModelProvider(this).get(MainVM::class.java)
 
         mainVM.getAllTaskToday(formatted).observe(viewLifecycleOwner, Observer {
-            recyclerViewToday.adapter= TaskRecycleViewAdapter(it)
+            recyclerViewToday.adapter= TaskRecycleViewAdapter(it, mainVM, 2)
         })
 
         recyclerViewToday.layoutManager = LinearLayoutManager(context)

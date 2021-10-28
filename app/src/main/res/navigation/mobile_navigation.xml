@@ -9,7 +9,7 @@
         android:id="@+id/navigation_home"
         android:name="com.example.todolistproject.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_addFragment"
             app:destination="@id/addFragment" />
@@ -22,13 +22,21 @@
         android:id="@+id/navigation_today"
         android:name="com.example.todolistproject.ui.today.ToDayFragment"
         android:label="@string/To_Day"
-        tools:layout="@layout/fragment_today" />
+        tools:layout="@layout/fragment_today">
+        <action
+            android:id="@+id/action_navigation_today_to_describtionFragment"
+            app:destination="@id/describtionFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_completed"
         android:name="com.example.todolistproject.ui.completed.CompletedFragment"
         android:label="@string/Combleted"
-        tools:layout="@layout/fragment_completed" />
+        tools:layout="@layout/fragment_completed" >
+        <action
+            android:id="@+id/action_navigation_completed_to_describtionFragment"
+            app:destination="@id/describtionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addFragment"
         android:name="com.example.todolistproject.ui.add.AddFragment"
@@ -42,5 +50,14 @@
         android:id="@+id/describtionFragment"
         android:name="com.example.todolistproject.DescribtionFragment"
         android:label="fragment_describtion"
-        tools:layout="@layout/fragment_describtion" />
+        tools:layout="@layout/fragment_describtion">
+        <argument
+            android:name="describtionData"
+            app:argType="com.example.todolistproject.Task" />
+        <action
+            android:id="@+id/action_describtionFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+
+    </fragment>
+
 </navigation>

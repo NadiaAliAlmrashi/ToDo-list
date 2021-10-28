@@ -10,11 +10,5 @@ import kotlinx.coroutines.launch
 
     class CompletedViewModel(context: Application) : AndroidViewModel(context) {
         private val repo = AppRepo(context)
-        fun getAllTaskComblet(): MutableLiveData<List<Task>> {
-            val tasks = MutableLiveData<List<Task>>()
-            viewModelScope.launch {
-                tasks.postValue(repo.getAllTaskComblet( ))
-            }
-            return tasks
-        }
+
     }
