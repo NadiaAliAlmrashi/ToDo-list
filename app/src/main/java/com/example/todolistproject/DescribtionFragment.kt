@@ -97,7 +97,7 @@ view.floatingActionSave.isEnabled=true
             findNavController().navigate(R.id.action_describtionFragment_to_navigation_home)
         }
         btnDelet=view.findViewById(R.id.floatingActionDelete)
-        btnDueDate.setOnClickListener{
+        btnDelet.setOnClickListener{
             val task= Task(taskTitle= txtTetal.text.toString(),
                 taskDescription = txtDirections.text.toString(),
                 datePicker=formatted.toString(),DateDue =txtDeuDate.text.toString(),
