@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.add.AddFragment">
+    tools:context=".AddFragment">
 
 
     <!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout"-->
@@ -14,88 +14,101 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
+        android:layout_width="318dp"
+        android:layout_height="46dp"
         android:gravity="center"
+
         android:text="@string/new_task"
         android:textSize="30sp"
+
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092" />
+        app:layout_constraintVertical_bias="0.037" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/AddTask"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_done_24"
         android:text="@string/add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.842" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
         android:text="@string/clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pickDate"
-        app:layout_constraintVertical_bias="0.717" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
 
     <EditText
         android:id="@+id/pickDetel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="329dp"
+        android:layout_height="213dp"
         android:autofillHints="Detel"
+        android:gravity="center"
         android:hint="@string/description_task"
         android:inputType="text"
+        android:textStyle="italic"
+
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.383"
+        app:layout_constraintVertical_bias="0.44"
         tools:ignore="TouchTargetSizeCheck" />
-
 
     <TextView
         android:id="@+id/pickDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="329dp"
+        android:layout_height="46dp"
+        android:gravity="center"
         android:hint="@string/dd_mm_yyyy"
+        android:textStyle="italic"
+
         android:inputType="date"
+
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.458"
+        app:layout_constraintVertical_bias="0.671"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/txtName"
+        android:textStyle="italic"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="329dp"
+        android:layout_height="58dp"
+        android:gravity="center"
         android:hint="Task Titel"
+
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
+        app:layout_constraintVertical_bias="0.234" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

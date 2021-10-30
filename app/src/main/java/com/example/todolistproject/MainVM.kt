@@ -44,4 +44,12 @@ class MainVM(context: Application) : AndroidViewModel(context) {
         repo.DeleteTask(task)
 
     }
+
+    fun sort(): MutableLiveData<List<Task>> {
+        val tasks = MutableLiveData<List<Task>>()
+        viewModelScope.launch {
+            tasks.postValue(repo.SortListTask())
+        }
+        return tasks
+    }
 }

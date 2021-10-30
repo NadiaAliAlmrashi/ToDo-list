@@ -47,6 +47,7 @@ class HomeFragment : Fragment() {
 
         val mainVM = ViewModelProvider(this).get(MainVM::class.java)
 
+
         mainVM.getAllTask().observe(viewLifecycleOwner, Observer {
              recyclerViewHome.adapter=TaskRecycleViewAdapter(it,mainVM, 1)
         })

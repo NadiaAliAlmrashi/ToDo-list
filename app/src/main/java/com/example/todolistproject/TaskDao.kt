@@ -24,7 +24,7 @@ interface TaskDao
     @Query("select * from Task_list where id== :uId")
     fun search(uId: Int): Task
 
-    @Query("SELECT * FROM Task_list ORDER BY taskTitle ASC")
+    @Query("SELECT * FROM Task_list ORDER BY dateNow ASC")
     fun sortedFind(): List<Task>
 
 }

@@ -1,4 +1,4 @@
-package com.example.todolistproject.ui.add
+package com.example.todolistproject
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
@@ -8,16 +8,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.todolistproject.MainVM
-import com.example.todolistproject.R
-import com.example.todolistproject.Task
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class AddFragment : Fragment() {
@@ -26,8 +22,8 @@ class AddFragment : Fragment() {
     private lateinit var titelTask: EditText
     private lateinit var Description: EditText
     private lateinit var pickdate: TextView
-    private lateinit var addButten: Button
-    private lateinit var clear: Button
+    private lateinit var addButten: FloatingActionButton
+    private lateinit var clear: FloatingActionButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +46,7 @@ class AddFragment : Fragment() {
         addButten =view.findViewById(R.id.AddTask)
 
         val current = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val formatter = DateTimeFormatter.ofPattern("yyyy-M-d")
         val formatted = current.format(formatter)
 
 
@@ -94,7 +90,7 @@ class AddFragment : Fragment() {
                     titelTask.setText(null)
                     Description.setText(null)
                     pickdate.setText(null)
-
+                    findNavController().navigate(R.id.action_addFragment_to_navigation_home)
                 }
                 alert.setNegativeButton(R.string.no) { dialog, _ ->
                     dialog.cancel()
@@ -103,6 +99,8 @@ class AddFragment : Fragment() {
                     dialog.cancel()
                 }
                 alert.show()
+
+
             }
 
 

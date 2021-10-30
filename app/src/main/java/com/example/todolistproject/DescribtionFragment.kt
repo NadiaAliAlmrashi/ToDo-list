@@ -1,5 +1,6 @@
 package com.example.todolistproject
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.icu.util.Calendar
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -26,20 +28,19 @@ class DescribtionFragment : Fragment() {
     private lateinit var viewModel: MainVM
     private lateinit var btnEdit: FloatingActionButton
     private lateinit var btnDelet: FloatingActionButton
-    private lateinit var btnDueDate: FloatingActionButton
     private lateinit var btnDueSave: FloatingActionButton
 
 
-    private lateinit var txtTetal:EditText
-    private lateinit var txtDirections:EditText
-    private lateinit var txtDeuDate:TextView
+    private lateinit var txtTetal: EditText
+    private lateinit var txtDirections: EditText
+    private lateinit var txtDeuDate: TextView
 
     private val args by navArgs<DescribtionFragmentArgs>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_describtion, container, false)
     }
 
@@ -47,30 +48,38 @@ class DescribtionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainVM::class.java)
-btnEdit=view.findViewById(R.id.floatingActionEdit)
-        txtTetal=view.findViewById(R.id.TaskTitelD)
-        txtDirections=view.findViewById(R.id.TaskDescribtionD)
-        txtDeuDate=view.findViewById(R.id.TaskDueDateD)
+        btnEdit = view.findViewById(R.id.floatingActionEdit)
+        txtTetal = view.findViewById(R.id.TaskTitelD)
+        txtDirections = view.findViewById(R.id.TaskDescribtionD)
+        txtDeuDate = view.findViewById(R.id.TaskDueDateD)
         txtTetal.setText(args.describtionData.taskTitle)
         txtDirections.setText(args.describtionData.taskDescription)
         txtDeuDate.setText(args.describtionData.DateDue)
         view.TaskDateCretedD.setText(args.describtionData.datePicker)
-
+        val current = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-M-d")
+        val formatted = current.format(formatter)
 
         btnEdit.setOnClickListener {
-view.TaskTitelD.isEnabled=true
-view.TaskDescribtionD.isEnabled=true
-view.floatingActionDuedate.isEnabled=true
-view.floatingActionSave.isEnabled=true
 
+            if (txtDeuDate.text.toString() < formatted) {
+                Toast.makeText(
+                    context,
+                    " Opps.. \n The task time has expired, you can't edit!!",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+
+
+                view.TaskTitelD.isEnabled = true
+                view.TaskDescribtionD.isEnabled = true
+                view.TaskDueDateD.isEnabled = true
+                view.floatingActionSave.isEnabled = true
+            }
 
 
         }
-        val current = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-        val formatted = current.format(formatter)
-        btnDueDate=view.findViewById(R.id.floatingActionDuedate)
-        btnDueDate.setOnClickListener{
+        txtDeuDate.setOnClickListener {
 
             val c = Calendar.getInstance()
             val day = c.get(Calendar.DAY_OF_MONTH)
@@ -87,23 +96,46 @@ view.floatingActionSave.isEnabled=true
             datePickerDialog.show()
         }
 
-        btnDueSave=view.findViewById(R.id.floatingActionSave)
-        btnDueSave.setOnClickListener{
+        btnDueSave = view.findViewById(R.id.floatingActionSave)
+        btnDueSave.setOnClickListener {
 
-            val task= Task(taskTitle= txtTetal.text.toString(),taskDescription = txtDirections.text.toString(),
-                datePicker=formatted.toString(),DateDue =txtDeuDate.text.toString(),id=args.describtionData.id)
+            val task = Task(
+                taskTitle = txtTetal.text.toString(),
+                taskDescription = txtDirections.text.toString(),
+                datePicker = formatted.toString(),
+                DateDue = txtDeuDate.text.toString(),
+                id = args.describtionData.id,
+                State = args.describtionData.State
+            )
 
             viewModel.updateData(task)
             findNavController().navigate(R.id.action_describtionFragment_to_navigation_home)
         }
-        btnDelet=view.findViewById(R.id.floatingActionDelete)
-        btnDelet.setOnClickListener{
-            val task= Task(taskTitle= txtTetal.text.toString(),
-                taskDescription = txtDirections.text.toString(),
-                datePicker=formatted.toString(),DateDue =txtDeuDate.text.toString(),
-                id=args.describtionData.id)
-             viewModel.deletData(task)
-            findNavController().navigate(R.id.action_describtionFragment_to_navigation_home)
+        btnDelet = view.findViewById(R.id.floatingActionDelete)
+        btnDelet.setOnClickListener {
+            val alert = AlertDialog.Builder(context)
+            alert.setTitle("Reset")
+            alert.setIcon(android.R.drawable.ic_dialog_alert)
+            alert.setMessage("Are you sure you want to \"Delete\" task?")
+            alert.setPositiveButton(R.string.yes) { _, _ ->
+                val task = Task(
+                    taskTitle = txtTetal.text.toString(),
+                    taskDescription = txtDirections.text.toString(),
+                    datePicker = formatted.toString(), DateDue = txtDeuDate.text.toString(),
+                    id = args.describtionData.id
+                )
+                viewModel.deletData(task)
+                findNavController().navigate(R.id.action_describtionFragment_to_navigation_home)
+
+            }
+            alert.setNegativeButton(R.string.no) { dialog, _ ->
+                dialog.cancel()
+            }
+            alert.setNeutralButton(R.string.cancel) { dialog, _ ->
+                dialog.cancel()
+            }
+            alert.show()
+
         }
     }
 }

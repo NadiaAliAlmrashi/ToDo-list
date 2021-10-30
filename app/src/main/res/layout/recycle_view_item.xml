@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
+    app:cardCornerRadius="35dp"
+    app:cardMaxElevation="@dimen/cardview_compat_inset_shadow"
+    android:id="@+id/cardColor"
+
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="@color/itemDefolt"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,52 +20,38 @@
             android:id="@+id/checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="58dp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="188dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="32dp"
-            android:text="Task:"
-            android:textSize="12dp"
-            app:layout_constraintEnd_toStartOf="@+id/rcTaskTitel"
-            app:layout_constraintHorizontal_bias="0.615"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/rcTaskTitel"
-            android:layout_width="148dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:textSize="10dp"
+            android:layout_width="129dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="148dp"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/rcTaskDeu"
-            android:layout_width="114dp"
-            android:layout_height="41dp"
-            android:textSize="10dp"
+            android:layout_width="93dp"
+            android:layout_height="43dp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rcTaskTitel" />
-
-        <TextView
-
-            android:id="@+id/textView3"
-            android:layout_width="110dp"
-            android:layout_height="45dp"
-            android:text="Due Date:"
-            android:textSize="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/rcTaskDeu"
-            app:layout_constraintHorizontal_bias="0.691"
+            app:layout_constraintHorizontal_bias="0.472"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.826" />
+            app:layout_constraintTop_toBottomOf="@+id/rcTaskTitel"
+            app:layout_constraintVertical_bias="0.529" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
