@@ -39,24 +39,25 @@ Learn everything new and useful
 ###Deu Date Task
 
 <src/main/res/drawable-v24/Screenshots/deudatetask.png>
-
+![deudatetask](deudatetask.png)
 
 ###Task Over Time can't be edit
 <src/main/res/drawable-v24/Screenshots/edittimeover.png>
-
+![edittimeover](edittimeover.png)
 
 ###Edit TasK Enabled EditText
 <src/main/res/drawable-v24/Screenshots/Edite.png>
-
+![Edite](Edite.png)
 ###Cancel Task
 <src/main/res/drawable-v24/Screenshots/canceltask.png>
-
+![canceltask](canceltask.png)
 ###Delet Task
 <src/main/res/drawable-v24/Screenshots/delettask.png>
+![delettask](delettask.png)
 
-
-
+##cancel
 <src/main/res/drawable-v24/Screenshots/canceltask.png>
+![canceltask](canceltask.png)
 <img src="/results/screenshot_1.png" width="260">
 
 ### screenshot_2
