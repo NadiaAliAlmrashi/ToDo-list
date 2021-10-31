@@ -32,10 +32,10 @@ Learn everything new and useful
 ![today](today.png)
 ### Complet Task
 <src/main/res/drawable-v24/Screenshots/completed.png>
-
+![completed](completed.png)
 ###Description Task
 <src/main/res/drawable-v24/Screenshots/Describtion.png>
-
+![Describtion.png](Describtion.png)
 ###Deu Date Task
 
 <src/main/res/drawable-v24/Screenshots/deudatetask.png>
