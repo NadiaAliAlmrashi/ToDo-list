@@ -16,6 +16,7 @@ when the appointments are missed marked its gray color,
 and also it is not possible to click on the completion of the task or modify it.
 
 It was a journey full of passion and learning,
+
  and I learned the importance of searching for information and spotting mistakes.
 ## :bulb: Motivation and Context
 ---
