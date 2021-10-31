@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    app:cardCornerRadius="35dp"
+    app:cardMaxElevation="@dimen/cardview_compat_inset_shadow"
+    android:id="@+id/cardColor"
+
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="@color/itemDefolt"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="404dp"
+        android:layout_height="122dp">
+
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.07"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rcTaskTitel"
+            android:layout_width="129dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="148dp"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rcTaskDeu"
+            android:layout_width="93dp"
+            android:layout_height="43dp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.472"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rcTaskTitel"
+            app:layout_constraintVertical_bias="0.529" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
