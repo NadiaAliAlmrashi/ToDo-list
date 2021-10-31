@@ -59,4 +59,4 @@ Learn everything new and useful
 <img src="/results/screenshot_1.png" width="260">
 
 ### screenshot_2
-<img src="/results/screenshot_2.png" width="260">
+<img src="results/screenshot_2.png" width="260">
