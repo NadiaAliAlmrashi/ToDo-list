@@ -28,7 +28,7 @@ Learn everything new and useful
 ---
 ### Today Task
 <src/main/res/drawable-v24/Screenshots/today.png>
-
+![today](today.png)
 ### Complet Task
 <src/main/res/drawable-v24/Screenshots/completed.png>
 
