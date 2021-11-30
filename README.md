@@ -61,7 +61,7 @@ Learn everything new and useful
 ![delettask](delettask.png)
 
 ##cancel
-<src/main/res/drawable-v24/Screenshots/canceltask.png>
+
 ![canceltask](canceltask.png)
 <img src="/results/screenshot_1.png" width="260">
 
