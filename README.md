@@ -63,7 +63,5 @@ Learn everything new and useful
 ##cancel
 
 ![canceltask](canceltask.png)
-<img src="/results/screenshot_1.png" width="260">
 
-### screenshot_2
-<img src="/results/screenshot_2.png" width="260">
+
