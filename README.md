@@ -32,36 +32,32 @@ Learn everything new and useful
 
 ## :camera_flash: Screenshots
 ---
+
 ### Today Task
-
 ![today](today.png)
+
 ### Complet Task
-
 ![completed](completed.png)
+
 ###Description Task
-
 ![Describtion.png](Describtion.png)
+
 ###Deu Date Task
-
-
 ![deudatetask](deudatetask.png)
 
 ###Task Over Time can't be edit
-
 ![edittimeover](edittimeover.png)
 
 ###Edit TasK Enabled EditText
-
 ![Edite](Edite.png)
+
 ###Cancel Task
-
 ![canceltask](canceltask.png)
-###Delet Task
 
+###Delet Task
 ![delettask](delettask.png)
 
 ##cancel
-
 ![canceltask](canceltask.png)
 
 
